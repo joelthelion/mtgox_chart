@@ -16,9 +16,16 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 from datetime import datetime
 
 # Change here to use the live data
-#print "Downloading the data from Mt. Gox ..."
-#data=load(urlopen("http://mtgox.com/code/data/getTrades.php"))
-data=load(open("getTrades.php"))
+print "Downloading the data from Mt. Gox ..."
+try:
+    json = None
+    json = urlopen("https://mtgox.com/code/data/getTrades.php").read()
+    data = loads(json)
+except Exception as e:
+    if json: 
+        print json
+    raise
+#data=load(open("getTrades.php"))
 
 print "Parsing the data..."
 date,price,amount = [],[],[]
