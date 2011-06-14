@@ -16,21 +16,29 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 from datetime import datetime
 
 # Change here to use the live data
+#print "Downloading the data from Mt. Gox ..."
 #data=load(urlopen("http://mtgox.com/code/data/getTrades.php"))
 data=load(open("getTrades.php"))
 
+print "Parsing the data..."
 date,price,amount = [],[],[]
 for d in data:
     date.append(datetime.fromtimestamp(d["date"]))
     price.append(d["price"])
     amount.append(d["amount"])
 
+print "Plotting..."
 fig=Figure(figsize=(10,6))
 ax1=fig.add_subplot(111)
-ax1.scatter(date,price,s=amount)
+
+# Tweak the alpha setting to change the transparency of each circle
+ax1.scatter(date,price,s=amount,alpha=0.1)
+
 fig.autofmt_xdate()
 ax1.set_xlabel("Time (UTC)")
 ax1.set_ylabel("Price ($/BTC)")
 ax1.set_title("Latest transactions at Mt. Gox")
 canvas=FigureCanvasAgg(fig)
+print "Rasterizing..."
 canvas.print_figure("mtgox.png",dpi=200)
+print "Done!"
