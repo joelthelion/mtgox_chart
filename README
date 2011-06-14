@@ -1,0 +1,12 @@
+This is a simple script used to plot the latest trades at Mt. Gox.
+
+To run it, you need a recent version of Python2 (2.6 or 2.7 should
+work) with matplotlib (http://matplotlib.sourceforge.net/ , available
+in most linux distros).
+
+Since the Mt. Gox data is quite heavy (more than 1MB), I would suggest
+using the local file for testing. Switching is just a matter of
+commenting/uncommenting one line in the file.
+
+The code is licensed under the GNU Affero GPL, version 3
+(http://www.gnu.org/licenses/agpl.html), and copyright Joël Schaerer, 211
