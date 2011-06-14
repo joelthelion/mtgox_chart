@@ -6,7 +6,7 @@ nice chart. It needs Matplotlib to work. By default it works on a local
 version of the code. Change the relevant line to enable live data.
 
 The code is licensed under the GNU Affero GPL, version 3
-(http://www.gnu.org/licenses/agpl.html), and copyright Joël Schaerer, 211
+(http://www.gnu.org/licenses/agpl.html), and copyright Joël Schaerer, 011
 """
 
 from json import loads,load
